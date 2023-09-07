@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     let spacerSize: CGFloat = 1
+    let darkBlue: Color = Color("DarkBlue")
+    let radius: CGFloat = 15
     var body: some View {
        
         VStack(alignment: .leading) {
@@ -22,7 +24,7 @@ struct ContentView: View {
             }
             
             HStack(spacing: spacerSize) {
-                Text("NEGRO").font(.largeTitle).background(Color("DarkBlue"))
+                Text("NEGRO").font(.largeTitle).background(darkBlue)
                     .foregroundColor(Color.white)
                     .padding(.top, 25)
                     .padding(.horizontal, 25)
@@ -34,12 +36,14 @@ struct ContentView: View {
             }
             HStack(spacing: spacerSize) {
                 Text("Verde").font(.title)
-                    .padding(.vertical, 10)
-                    .background(Color.orange)
+                    .background(Color.gray)
+                    .padding(.vertical, 15)
+                    .padding(.trailing, 70)
                     .foregroundColor(Color.white)
                     .frame(maxWidth: .infinity)
                     .background(Color.orange)
                     .border(Color.blue)
+                    .cornerRadius(radius)
             }
             HStack(spacing: spacerSize) {
                 Text("Morado").font(.caption)
@@ -48,9 +52,11 @@ struct ContentView: View {
             }
             HStack(spacing: spacerSize) {
                 Text("Naranja").font(.title)
+                    .frame(maxWidth: .infinity)
                     .padding(.vertical, 20)
                     .underline()
-                    .padding(.horizontal, 145)
+                    .padding([.horizontal, .trailing], 150)
+                    .truncationMode(.tail)
             }
         }
         /*VStack(alignment: .leading) {
