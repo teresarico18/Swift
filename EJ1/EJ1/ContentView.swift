@@ -13,52 +13,81 @@ struct ContentView: View {
     let radius: CGFloat = 15
     var body: some View {
        
-        VStack(alignment: .leading) {
-            HStack(spacing: spacerSize) {
-                Text("Amarillo").font(.title)
-                    .foregroundColor(Color.green)
-                Text("Azul").font(.title)
-                    .foregroundColor(Color.red)
-                Text("Naranja").font(.title)
-                    .foregroundColor(Color.blue)
-            }
-            
-            HStack(spacing: spacerSize) {
-                Text("NEGRO").font(.largeTitle).background(darkBlue)
-                    .foregroundColor(Color.white)
-                    .padding(.top, 25)
-                    .padding(.horizontal, 25)
-                Text("ROJO").font(.largeTitle)
-                    .background(Color("LightBlue"))
-                    .foregroundColor(Color.red)
-                    .padding(.top, 25)
-            
-            }
-            HStack(spacing: spacerSize) {
-                Text("Verde").font(.title)
-                    .background(Color.gray)
-                    .padding(.vertical, 15)
-                    .padding(.trailing, 70)
-                    .foregroundColor(Color.white)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.orange)
-                    .border(Color.blue)
-                    .cornerRadius(radius)
-            }
-            HStack(spacing: spacerSize) {
-                Text("Morado").font(.caption)
-                    .padding(.vertical, 10)
-                    .bold()
-            }
-            HStack(spacing: spacerSize) {
-                Text("Naranja").font(.title)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 20)
-                    .underline()
-                    .padding([.horizontal, .trailing], 150)
-                    .truncationMode(.tail)
-            }
+        ZStack{
+            Image("cats")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .overlay(
+                    VStack(alignment: .leading) {
+                        HStack(spacing: spacerSize) {
+                            VStack(alignment: .leading) {
+                                Image(systemName: "pencil.circle.fill")
+                                .font(.system(size:40))
+                                .imageScale(.large)
+                                .foregroundColor(.green)
+                                Text("Amarillo").font(.title)
+                                    .foregroundColor(Color.green)
+                            }
+                            VStack(alignment: .leading) {
+                                Image(systemName: "folder.fill")
+                                .font(.system(size:40))
+                                .imageScale(.large)
+                                .foregroundColor(.red)
+                                Text("Azul").font(.title)
+                                    .foregroundColor(Color.red)
+                            }
+                            VStack(alignment: .leading) {
+                                Image(systemName: "staroflife.fill")
+                                .font(.system(size:40))
+                                .imageScale(.large)
+                                .foregroundColor(.blue)
+                                Text("Naranja").font(.title)
+                                    .foregroundColor(Color.blue)
+                            }
+                        }.padding(.horizontal, 90)
+                        
+                        HStack(spacing: spacerSize) {
+                            Text("NEGRO").font(.largeTitle).background(darkBlue)
+                                .foregroundColor(Color.white)
+                                .padding(.top, 25)
+                                .padding(.horizontal, 25)
+                            Image("tay")
+                                .resizable()
+                                .frame(width: 100 , height: 100)
+                            Text("ROJO").font(.largeTitle)
+                                .background(Color("LightBlue"))
+                                .foregroundColor(Color.red)
+                                .padding(.top, 25)
+                        
+                        }.padding(.horizontal, 80)
+                        HStack(spacing: spacerSize) {
+                            Text("Verde").font(.title)
+                                .background(Color.gray)
+                                .padding(.vertical, 15)
+                                .padding(.trailing, 70)
+                                .foregroundColor(Color.white)
+                                .frame(maxWidth: .infinity)
+                                .background(Color.orange)
+                                .border(Color.blue)
+                                .cornerRadius(radius)
+                        }.padding(.horizontal, 70)
+                        HStack(spacing: spacerSize) {
+                            Text("Morado").font(.caption)
+                                .padding(.vertical, 10)
+                                .bold()
+                        }
+                        HStack(spacing: spacerSize) {
+                            Text("Naranja").font(.title)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 20)
+                                .underline()
+                                .padding([.horizontal, .trailing], 150)
+                                .truncationMode(.tail)
+                        }
+                    }
+                )
         }
+        .ignoresSafeArea()
         /*VStack(alignment: .leading) {
             Text("2ndo").font(.title)
             Text("Izq.")
