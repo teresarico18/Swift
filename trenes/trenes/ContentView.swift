@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    var avionOpciones : [String] = ["Interjet", "Aeroméxico", "Volaris"]
+    var trenOpciones : [String] = ["Urban", "Disney", "Oruga"]
+    var autobusOpciones : [String] = ["ETN", "ADO", "Omnibus"]
+    
     @State var isPressed : Bool = true
     
     private func printHola() -> String{
@@ -24,7 +28,7 @@ struct ContentView: View {
     var body: some View {
         VStack{
             
-            Text("isPressed: \(printHola())")
+            /*Text("isPressed: \(printHola())")
             TextField("Where do u wanna go? ", text: $country)
             Text("Viajaras a: \(self.country)")
             ScrollView(.horizontal){
@@ -34,14 +38,23 @@ struct ContentView: View {
                     MeansOfTransportView(name: "Lover", icon: "heart.circle.fill", isPressed: $isPressed)
                     MeansOfTransportView(name: "1989", icon: "building.2.crop.circle", isPressed: $isPressed)
                 }
-            }
-            ScrollView(){
-                VStack(){
-                    TrenCardView(name: "Reputation", color: Color.black)
-                    TrenCardView(name: "Lover", color: Color.pink)
-                    TrenCardView(name: "Midnights", color: Color.blue)
-                    TrenCardView(name: "Folklore", color: Color.gray)
-                }.padding()
+            }*/
+            NavigationView{
+                ScrollView(){
+                    Text("Escoge método de transporte:")
+
+                    VStack(){
+                        NavigationLink(destination: TransportDetailView(opciones: trenOpciones), label: {
+                            TrenCardView(name: "Tren", color: Color.blue, icon: "tram.circle.fill")
+                        })
+                        NavigationLink(destination: TransportDetailView(opciones: autobusOpciones), label: {
+                            TrenCardView(name: "Autobús", color: Color.pink, icon: "bolt.car.circle")
+                        })
+                        NavigationLink(destination: TransportDetailView(opciones: avionOpciones), label: {
+                            TrenCardView(name: "Avión", color: Color.green, icon: "airplane.circle.fill")
+                        })
+                    }
+                }
             }
         }
     }

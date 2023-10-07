@@ -12,6 +12,7 @@
 		2465150A2AB91E6E00380854 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 246515092AB91E6E00380854 /* Assets.xcassets */; };
 		2465150D2AB91E6E00380854 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2465150C2AB91E6E00380854 /* Preview Assets.xcassets */; };
 		246515142AB921BA00380854 /* TrenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246515132AB921BA00380854 /* TrenCardView.swift */; };
+		247E02152AD0D5900013CF31 /* TransportDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247E02142AD0D5900013CF31 /* TransportDetailView.swift */; };
 		24DFBB7E2AC255DC0014FE5A /* MeansOfTransportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DFBB7D2AC255DC0014FE5A /* MeansOfTransportView.swift */; };
 		24DFBB802AC259200014FE5A /* CardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DFBB7F2AC259200014FE5A /* CardViewModifier.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +24,7 @@
 		246515092AB91E6E00380854 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2465150C2AB91E6E00380854 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		246515132AB921BA00380854 /* TrenCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrenCardView.swift; sourceTree = "<group>"; };
+		247E02142AD0D5900013CF31 /* TransportDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDetailView.swift; sourceTree = "<group>"; };
 		24DFBB7D2AC255DC0014FE5A /* MeansOfTransportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeansOfTransportView.swift; sourceTree = "<group>"; };
 		24DFBB7F2AC259200014FE5A /* CardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +61,7 @@
 			children = (
 				246515052AB91E6700380854 /* trenesApp.swift */,
 				246515072AB91E6700380854 /* ContentView.swift */,
+				247E02142AD0D5900013CF31 /* TransportDetailView.swift */,
 				24DFBB7F2AC259200014FE5A /* CardViewModifier.swift */,
 				24DFBB7D2AC255DC0014FE5A /* MeansOfTransportView.swift */,
 				246515132AB921BA00380854 /* TrenCardView.swift */,
@@ -151,6 +154,7 @@
 				24DFBB802AC259200014FE5A /* CardViewModifier.swift in Sources */,
 				24DFBB7E2AC255DC0014FE5A /* MeansOfTransportView.swift in Sources */,
 				246515062AB91E6700380854 /* trenesApp.swift in Sources */,
+				247E02152AD0D5900013CF31 /* TransportDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

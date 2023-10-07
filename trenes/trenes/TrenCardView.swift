@@ -10,6 +10,7 @@ import SwiftUI
 struct TrenCardView: View {
     var name : String
     var color : Color
+    var icon : String
     @State var showAlert : Bool = false
     var body: some View {
         VStack(){
@@ -34,7 +35,7 @@ struct TrenCardView: View {
 
         }
 
-        Image(systemName: "tram.circle.fill")
+        Image(systemName: icon)
         .padding()
         .font(.system(size: 90, weight: .light, design: .default))
 
@@ -65,6 +66,6 @@ struct TrenCardView: View {
 
 struct TrenCardView_Previews: PreviewProvider {
     static var previews: some View {
-        TrenCardView(name: "Taylor", color: Color.green)
+        TrenCardView(name: "Taylor", color: Color.green, icon : "tram.circle.fill")
     }
 }
