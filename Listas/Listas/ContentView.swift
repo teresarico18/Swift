@@ -54,6 +54,7 @@ struct ContentView: View {
                 self.gamesViewModel.remove(atOffsets: indexSet)
             }
         }.listStyle(PlainListStyle())
+
     }
 }
 
