@@ -23,7 +23,6 @@ struct MenuView: View {
         }.padding(.vertical, 30)
             .background(LinearGradient(gradient: Gradient(colors: [color1, color2]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(30)
-
     }
 }
 

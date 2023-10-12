@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MenuViewModel{
     
-    func dummyData() -> [Menu] {
+    func menuData() -> [Menu] {
         
         let menus: [Menu] = [
             Menu(id: 1, titulo: "BEBIDAS", color1: Color.blue, color2: Color.purple, image: "palomitas"),

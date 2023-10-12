@@ -24,8 +24,7 @@ struct ArticuloView: View {
                 .padding(.top, 20)
             Text(price).font(.title)
                 .foregroundColor(Color("fontColor"))
-        }
-        
+        } 
     }
 }
 
