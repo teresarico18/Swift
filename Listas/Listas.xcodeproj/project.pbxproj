@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2409535C2AE73D8F001028CB /* FixedGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2409535B2AE73D8F001028CB /* FixedGridView.swift */; };
+		2409535E2AE74024001028CB /* AdaptiveGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2409535D2AE74024001028CB /* AdaptiveGridView.swift */; };
+		240953602AE74197001028CB /* FlexibleGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2409535F2AE74197001028CB /* FlexibleGridView.swift */; };
+		240953622AE742DB001028CB /* GeometryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240953612AE742DB001028CB /* GeometryView.swift */; };
+		240953642AE74699001028CB /* OverlayRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240953632AE74699001028CB /* OverlayRectangleView.swift */; };
+		240953662AE746EF001028CB /* GridElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240953652AE746EF001028CB /* GridElementView.swift */; };
+		240953682AE74731001028CB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240953672AE74731001028CB /* SearchView.swift */; };
+		2409536A2AE74778001028CB /* MyGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240953692AE74778001028CB /* MyGridView.swift */; };
 		248C50562AD4C881007FEF19 /* ListasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C50552AD4C881007FEF19 /* ListasApp.swift */; };
 		248C50582AD4C881007FEF19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C50572AD4C881007FEF19 /* ContentView.swift */; };
 		248C505A2AD4C885007FEF19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 248C50592AD4C885007FEF19 /* Assets.xcassets */; };
@@ -17,6 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2409535B2AE73D8F001028CB /* FixedGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedGridView.swift; sourceTree = "<group>"; };
+		2409535D2AE74024001028CB /* AdaptiveGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveGridView.swift; sourceTree = "<group>"; };
+		2409535F2AE74197001028CB /* FlexibleGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleGridView.swift; sourceTree = "<group>"; };
+		240953612AE742DB001028CB /* GeometryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryView.swift; sourceTree = "<group>"; };
+		240953632AE74699001028CB /* OverlayRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayRectangleView.swift; sourceTree = "<group>"; };
+		240953652AE746EF001028CB /* GridElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridElementView.swift; sourceTree = "<group>"; };
+		240953672AE74731001028CB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		240953692AE74778001028CB /* MyGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGridView.swift; sourceTree = "<group>"; };
 		248C50522AD4C881007FEF19 /* Listas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		248C50552AD4C881007FEF19 /* ListasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListasApp.swift; sourceTree = "<group>"; };
 		248C50572AD4C881007FEF19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +77,14 @@
 				248C50672AD4CBA3007FEF19 /* Models */,
 				248C50552AD4C881007FEF19 /* ListasApp.swift */,
 				248C50682AD4CC06007FEF19 /* FactoryGames.swift */,
+				2409535B2AE73D8F001028CB /* FixedGridView.swift */,
+				2409535D2AE74024001028CB /* AdaptiveGridView.swift */,
+				2409535F2AE74197001028CB /* FlexibleGridView.swift */,
+				240953612AE742DB001028CB /* GeometryView.swift */,
+				240953632AE74699001028CB /* OverlayRectangleView.swift */,
+				240953652AE746EF001028CB /* GridElementView.swift */,
+				240953672AE74731001028CB /* SearchView.swift */,
+				240953692AE74778001028CB /* MyGridView.swift */,
 				248C50572AD4C881007FEF19 /* ContentView.swift */,
 				248C50632AD4C98D007FEF19 /* CardView.swift */,
 				248C50592AD4C885007FEF19 /* Assets.xcassets */,
@@ -157,8 +181,16 @@
 				248C50692AD4CC06007FEF19 /* FactoryGames.swift in Sources */,
 				248C50582AD4C881007FEF19 /* ContentView.swift in Sources */,
 				248C50642AD4C98D007FEF19 /* CardView.swift in Sources */,
+				240953662AE746EF001028CB /* GridElementView.swift in Sources */,
+				240953682AE74731001028CB /* SearchView.swift in Sources */,
+				240953642AE74699001028CB /* OverlayRectangleView.swift in Sources */,
+				2409536A2AE74778001028CB /* MyGridView.swift in Sources */,
 				248C50562AD4C881007FEF19 /* ListasApp.swift in Sources */,
 				248C50662AD4CB89007FEF19 /* Game.swift in Sources */,
+				240953602AE74197001028CB /* FlexibleGridView.swift in Sources */,
+				240953622AE742DB001028CB /* GeometryView.swift in Sources */,
+				2409535C2AE73D8F001028CB /* FixedGridView.swift in Sources */,
+				2409535E2AE74024001028CB /* AdaptiveGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
