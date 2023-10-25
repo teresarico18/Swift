@@ -7,81 +7,83 @@
 
 import SwiftUI
 import CoreData
-
+ 
 struct ContentView: View {
+    
+    @State var name: String = ""
+    @State var quantity: String = ""
+    
     @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
+    
+    @FetchRequest(entity: Product.entity(), sortDescriptors: [])
+    private var products: FetchedResults<Product>
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+            NavigationView {
+                VStack {
+                    TextField("Product name", text: $name)
+                    TextField("Product quantity", text: $quantity)
+                    
+                    HStack {
+                        Spacer()
+                        Button("Add") {
+                            
+                        }
+                        Spacer()
+                        Button("Clear") {
+                            name = ""
+                            quantity = ""
+                        }
+                        Spacer()
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    
+                    List {
+                        ForEach(products) { product in
+                            HStack {
+                                Text(product.name ?? "Not found")
+                                Spacer()
+                                Text(product.quantity ?? "Not found")
+                            }
+                        }
                     }
+                    .navigationTitle("Product Database")
                 }
+                .padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             }
-            Text("Select an item")
         }
-    }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
+    private func addProduct() {
+            
+            withAnimation {
+                let product = Product(context: viewContext)
+                product.name = name
+                product.quantity = quantity
+                
+                saveContext()
+            }
+        }
+        
+        private func saveContext() {
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                let error = error as NSError
+                fatalError("An error occured: \(error)")
             }
         }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
+private func saveContext() {
+    do {
+        try viewContext.save()
+    } catch {
+        let error = error as NSError
+        fatalError("An error occured: \(error)")
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

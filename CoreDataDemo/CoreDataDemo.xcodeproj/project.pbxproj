@@ -13,6 +13,7 @@
 		24731AD52ADA11B4003C4341 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24731AD42ADA11B4003C4341 /* ContentView.swift */; };
 		24731AD72ADA11B8003C4341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24731AD62ADA11B8003C4341 /* Assets.xcassets */; };
 		24731ADB2ADA11B8003C4341 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24731ADA2ADA11B8003C4341 /* Preview Assets.xcassets */; };
+		24731AE32ADA1211003C4341 /* Products.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24731AE12ADA1211003C4341 /* Products.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		24731AD62ADA11B8003C4341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24731AD82ADA11B8003C4341 /* CoreDataDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreDataDemo.entitlements; sourceTree = "<group>"; };
 		24731ADA2ADA11B8003C4341 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		24731AE22ADA1211003C4341 /* Products.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Products.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				24731ACD2ADA11B4003C4341 /* CoreDataDemoApp.swift */,
 				24731ACF2ADA11B4003C4341 /* Persistence.swift */,
 				24731AD42ADA11B4003C4341 /* ContentView.swift */,
+				24731AE12ADA1211003C4341 /* Products.xcdatamodeld */,
 				24731AD62ADA11B8003C4341 /* Assets.xcassets */,
 				24731AD82ADA11B8003C4341 /* CoreDataDemo.entitlements */,
 				24731AD12ADA11B4003C4341 /* CoreDataDemo.xcdatamodeld */,
@@ -148,6 +151,7 @@
 				24731ACE2ADA11B4003C4341 /* CoreDataDemoApp.swift in Sources */,
 				24731AD32ADA11B4003C4341 /* CoreDataDemo.xcdatamodeld in Sources */,
 				24731AD52ADA11B4003C4341 /* ContentView.swift in Sources */,
+				24731AE32ADA1211003C4341 /* Products.xcdatamodeld in Sources */,
 				24731AD02ADA11B4003C4341 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +371,16 @@
 			);
 			currentVersion = 24731AD22ADA11B4003C4341 /* CoreDataDemo.xcdatamodel */;
 			path = CoreDataDemo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		24731AE12ADA1211003C4341 /* Products.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				24731AE22ADA1211003C4341 /* Products.xcdatamodel */,
+			);
+			currentVersion = 24731AE22ADA1211003C4341 /* Products.xcdatamodel */;
+			path = Products.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
