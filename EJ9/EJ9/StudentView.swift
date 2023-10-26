@@ -17,27 +17,32 @@ struct StudentView: View {
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
+    @State private var imgFlag: Bool = true
 
     var body: some View {
-        LazyVGrid(columns: columns){
-            Image("student")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .cornerRadius(60)
-                .frame(maxWidth: 150, maxHeight: 150)
-                .padding(.trailing, 10)
-            VStack(alignment: .leading, spacing: 8){
-                Text(id + " | " + name)
-                    .bold()
-                Text(email).font(.footnote)
-                Text(major).font(.caption)
-            }
-        }.padding()
-        .background(
-            Rectangle()
-                .cornerRadius(10)
-                .foregroundColor(color))
-    }
+            LazyVGrid(columns: columns){
+                Button(action: {
+                    imgFlag.toggle()
+                }) { Image(imgFlag ? "student" : "studentPic")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(60)
+                        .frame(maxWidth: 150, maxHeight: 150)
+                        .padding(.trailing, 10)
+                }
+                VStack(alignment: .leading, spacing: 8){
+                    Text(id + " | " + name)
+                        .bold()
+                    Text(email).font(.footnote).foregroundColor(Color.white)
+                    Text(major).font(.caption)
+                }
+            }.padding()
+            .background(
+                Rectangle()
+                    .cornerRadius(10)
+                    .foregroundColor(color))
+        }
+        
 }
 
 struct StudentView_Previews: PreviewProvider {

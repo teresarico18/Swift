@@ -9,43 +9,48 @@ import SwiftUI
 
 struct ContentView: View {
     @State var studentsViewModel = StudentsViewModel().dummyData()
-    @State var studentName:String = ""
-    var columns = Array(repeating: GridItem(.flexible(),spacing: 5), count: 1)
+    @State var studentName: String = ""
+    @State private var columns: [GridItem] = [GridItem(.flexible())]
 
-    func search() -> [Student]{
-        if !studentName.isEmpty{
+    func search() -> [Student] {
+        if !studentName.isEmpty {
             return studentsViewModel.filter {
-                $0.name.lowercased().contains( studentName.lowercased())
+                $0.name.lowercased().contains(studentName.lowercased())
             }
-        }else{
+        } else {
             return studentsViewModel
         }
     }
-    
+
     var body: some View {
         GeometryReader { geometry in
-            VStack{
+            VStack {
                 SearchView(studentName: $studentName)
-                
+
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 15) {
-                        //spacing vertical
-                        ForEach(search() , id: \.self.uuid) {
-                            
-                            student in
-                            
+                        ForEach(search(), id: \.self.uuid) { student in
                             StudentView(id: student.id, name: student.name, email: student.email, major: student.major, color: Color.orange)
                         }
                     }
                 }.padding()
             }
         }
-        
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                handleOrientationChange()
+            }
+            handleOrientationChange()
+        }
     }
-    /*var body: some View {
-        StudentView(id: studentsViewModel[0].id
-                    , name: studentsViewModel[0].name, email: studentsViewModel[0].email, major: studentsViewModel[0].major, color: Color.orange)
-    }*/
+
+    private func handleOrientationChange() {
+        if UIDevice.current.orientation.isPortrait {
+            columns = [GridItem(.flexible())]
+        } else {
+            columns = [GridItem(.flexible()), GridItem(.flexible())]
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
