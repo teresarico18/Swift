@@ -2,91 +2,89 @@
 //  ContentView.swift
 //  CoreDataDemo
 //
-//  Created by Tere Rico on 13/10/23.
+//  Created by Tere Rico on 25/10/23.
 //
 
 import SwiftUI
-import CoreData
- 
+
 struct ContentView: View {
     
-    @State var name: String = ""
-    @State var quantity: String = ""
     
+    @State var nombre : String = ""
+    @State var consola: String = ""
     @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: Game.entity(),
+                  sortDescriptors: [NSSortDescriptor(key: "nombre", ascending: true)] )
+    //ordenado por nombre ascendente
+    private var games: FetchedResults<Game>
     
-    @FetchRequest(entity: Product.entity(), sortDescriptors: [])
-    private var products: FetchedResults<Product>
-
+    
     var body: some View {
-            NavigationView {
-                VStack {
-                    TextField("Product name", text: $name)
-                    TextField("Product quantity", text: $quantity)
-                    
-                    HStack {
-                        Spacer()
-                        Button("Add") {
-                            
-                        }
-                        Spacer()
-                        Button("Clear") {
-                            name = ""
-                            quantity = ""
-                        }
-                        Spacer()
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    
-                    List {
-                        ForEach(products) { product in
-                            HStack {
-                                Text(product.name ?? "Not found")
-                                Spacer()
-                                Text(product.quantity ?? "Not found")
-                            }
-                        }
-                    }
-                    .navigationTitle("Product Database")
-                }
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            }
+        NavigationView {
+                   VStack {
+                       TextField("Nombre del Juego", text: $nombre).disableAutocorrection(true)
+                       TextField("Consola", text: $consola).disableAutocorrection(true)
+                       
+                       HStack {
+                           Spacer()
+                           Button("Agregar") {
+                               agregarJuego()
+                               limpiar()
+                           }
+                           Spacer()
+                           
+                           NavigationLink(destination: BusquedaView(nombre: nombre, viewContext: viewContext)) {
+                                     Text("Buscar")
+                                 }
+                           
+                           Spacer()
+                           Button("Limpiar") {
+                              limpiar()
+                           }
+                           Spacer()
+                       }
+                       .padding()
+                       .frame(maxWidth: .infinity)
+                       
+                       List {
+                           ForEach(games) { juego in
+                               
+                               NavigationLink(destination: EditarView(miJuego: juego)) {
+                                   
+                                   RowView(nombre: juego.nombre ?? "" , consola: juego.consola ?? "")
+                                   
+                               }
+                           }
+                           .onDelete(perform: borrarJuegos)
+                       }
+                       .navigationTitle("Games Database")
+                   }
+                   .padding()
+                   .textFieldStyle(RoundedBorderTextFieldStyle())
+               }
+    }
+    
+    private func limpiar(){
+        nombre = ""
+        consola = ""
+    }
+    
+    private func agregarJuego(){
+        withAnimation{
+            GameModel(context: self.viewContext).add(nombre: nombre, consola: consola)
         }
-
-    private func addProduct() {
-            
-            withAnimation {
-                let product = Product(context: viewContext)
-                product.name = name
-                product.quantity = quantity
-                
-                saveContext()
-            }
+    }
+    
+    //offsets es position of the items selected
+    private func borrarJuegos(offsets: IndexSet){
+        withAnimation {
+            GameModel(context: self.viewContext).delete(miJuego: games[offsets.first!])
         }
-        
-        private func saveContext() {
-            do {
-                try viewContext.save()
-            } catch {
-                let error = error as NSError
-                fatalError("An error occured: \(error)")
-            }
-        }
-}
-
-private func saveContext() {
-    do {
-        try viewContext.save()
-    } catch {
-        let error = error as NSError
-        fatalError("An error occured: \(error)")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }
